@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<div class="container">
+    <h1>Страница настроек</h1>
+    <form th:action="@{/userupdate}" method="post">
+        <br><div class="text-danger" th:text="${passwordError}"></div><br><br>
+        <input type="email" name="email" class="form-control" placeholder="Введите email" th:value="${useremail}"/><br>
+        <input type="password" name="password" class="form-control" placeholder="Введите пароль"/><br>
+        <select name="role">
+            <option value="USER">Пользователь</option>
+            <option value="ADMIN">Администратор</option>
+            <option value="OWNER">Владелец</option>
+            <option value="VIP">Инвестор</option>
+        </select><br><br>
+        <input type="submit" value="Обновить данные" class="btn btn-success"/>
+    </form>
+</div>
+<div th:replace="blocks/footer :: footer"></div>
+</body>
+</html>
